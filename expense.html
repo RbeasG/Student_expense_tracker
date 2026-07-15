@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+    href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+
+    <script src = "expense.js"></script>
+</head>
+<body>
+    <div id = "tabs">
+        <ul>
+            <li> <a href = "#tab-1">Add Income</a></li>
+            <li> <a href = "#tab-2">Add Expense</a></li>
+            <li> <a href = "#tab-3">View info</a></li>
+        </ul>
+    
+        <div id = "tab-1"> 
+            <label for="amount">Income:</label>
+            <span>$</span>
+            <input type="number" id="Income" name="Income"  min="0" required>
+        </div>
+
+         
+        <div id="tab-2">
+            <form id="expenseForm">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="food">Needs</option>
+                    <option value="transportation">Wants</option>
+                    <option value="entertainment">Savings</option>
+                </select><br><br>
+                <label for="amount">Amount:</label>
+                <span>$</span>
+                <input type="number" id="amount" name="amount"  min="0" required>
+                <button type="submit">Add Expense</button>
+            </form>
+
+        </div>
+        
+
+        <div id = "tab-3"> 
+            <p>This Works</p>
+        </div>
+    </div> 
+</body>
+</html>
