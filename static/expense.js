@@ -30,7 +30,7 @@ $(function () {
 
 
     // Add Income
-    $("#incomeForm").submit(function (event) {
+    $("#incomeform").submit(function (event) {
         event.preventDefault();
 
         let income = {
