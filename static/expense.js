@@ -1,6 +1,7 @@
 $(function () {
     $("#tabs").tabs();
 
+    // Add Expense
     $("#expenseForm").submit(function (event) {
         event.preventDefault();
 
@@ -16,15 +17,36 @@ $(function () {
             },
             body: JSON.stringify(expense)
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Failed to add expense");
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
             console.log(data);
             $("#expenseForm")[0].reset();
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+
+
+    // Add Income
+    $("#incomeForm").submit(function (event) {
+        event.preventDefault();
+
+        let income = {
+            amount: Number($("#Income").val())
+        };
+
+        fetch("/addIncome", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(income)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            $("#incomeForm")[0].reset();
         })
         .catch(error => {
             console.error("Error:", error);

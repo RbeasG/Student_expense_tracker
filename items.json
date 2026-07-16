@@ -1,6 +1,9 @@
-[
-    {
-        "category": "Wants",
-        "amount": 60
-    }
-]
+{
+    "income": 500,
+    "expenses": [
+        {
+            "category": "Wants",
+            "amount": 40
+        }
+    ]
+}
