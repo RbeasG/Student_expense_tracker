@@ -3,11 +3,28 @@
     "expenses": [
         {
             "category": "Needs",
+            "description": "Rent",
+            "amount": 400
+        },
+        {
+            "category": "Needs",
+            "description": "Food",
             "amount": 300
         },
         {
-            "category": "Wants",
+            "category": "Needs",
+            "description": "rent",
             "amount": 700
+        },
+        {
+            "category": "Needs",
+            "description": "car payment",
+            "amount": 500
+        },
+        {
+            "category": "Wants",
+            "description": "concert ticket",
+            "amount": 50
         }
     ]
 }

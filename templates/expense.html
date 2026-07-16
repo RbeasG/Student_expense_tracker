@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer async></script>
-    <link rel="stylesheet"
-    href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
 
-    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" defer async></script>
+    <title>Budget Tracker</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+    <script src="{{ url_for('static', filename='expense.js') }}" defer></script>
 
-    <script src = "/static/expense.js" defer async></script>
+
 </head>
+
 <body>
     <div id = "tabs">
         <ul>
@@ -34,27 +41,79 @@
 
          
         <div id="tab-2">
-            <form id="expenseForm">
+
+            <form id="expenseform">
+        
                 <label for="category">Category:</label>
+        
                 <select id="category" name="category" required>
+        
                     <option value="">Select a category</option>
                     <option value="Needs">Needs</option>
                     <option value="Wants">Wants</option>
                     <option value="Savings">Savings</option>
-                </select><br><br>
-                <label for="amount">Amount:</label>
-                <span>$</span>
-                <input type="number" id="amount" name="amount"  min="0" required>
-                <button type="submit">Add Expense</button>
-            </form>
-
-        </div>
         
-
-        <div id = "tab-3"> 
-            <h3>Expense Breakdown</h3>
-            <canvas id="expenseChart" width="600" height="600"></canvas>
+                </select>
+        
+                <br><br>
+        
+                <label for="description">Description:</label>
+        
+                <input 
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="Example: Rent"
+                    required
+                >
+        
+                <br><br>
+        
+                <label for="amount">Amount:</label>
+        
+                <span>$</span>
+        
+                <input 
+                    type="number"
+                    id="amount"
+                    name="amount"
+                    min="0"
+                    required
+                >
+        
+                <br><br>
+        
+                <button type="submit">
+                    Add Expense
+                </button>
+        
+            </form>
+        
         </div>
+
+        <div id="tab-3">
+
+            <div class="info-container">
+        
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+        
+        
+                <div id="expenseBreakdown">
+                    <h3>Expense Breakdown</h3>
+                    <!-- JavaScript will put expenses here -->
+                </div>
+        
+            </div>
+        
+        
+            <div id="remaining">
+                Remaining: $0
+            </div>
+        
+        </div>
+            
     </div> 
 </body>
 </html>
