@@ -20,6 +20,7 @@ $(function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            alert(data.message);
             $("#expenseForm")[0].reset();
         })
         .catch(error => {
@@ -46,6 +47,7 @@ $(function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            alert(data.message);
             $("#incomeForm")[0].reset();
         })
         .catch(error => {

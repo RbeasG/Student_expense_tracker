@@ -14,7 +14,9 @@ def addIncome():
     with open("items.json", "r") as file:
         data = json.load(file)
 
-    # Save income amount
+    if data["income"] > 0:
+        return jsonify({"message": "Income already exists"}), 400
+
     data["income"] = income["amount"]
 
     with open("items.json", "w") as file:
@@ -55,6 +57,8 @@ def balance():
         "expenses": total_expenses,
         "remaining": remaining
     })
+
+
 
 
 if __name__ == "__main__":
