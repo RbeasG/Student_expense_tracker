@@ -10,7 +10,7 @@
 
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
 
-    <script src = "expense.js"></script>
+    <script src="{{ url_for('static', filename='expense.js') }}"></script>
 </head>
 <body>
     <div id = "tabs">
@@ -32,9 +32,9 @@
                 <label for="category">Category:</label>
                 <select id="category" name="category" required>
                     <option value="">Select a category</option>
-                    <option value="food">Needs</option>
-                    <option value="transportation">Wants</option>
-                    <option value="entertainment">Savings</option>
+                    <option value="Needs">Needs</option>
+                    <option value="Wants">Wants</option>
+                    <option value="Savings">Savings</option>
                 </select><br><br>
                 <label for="amount">Amount:</label>
                 <span>$</span>
