@@ -9,6 +9,8 @@
     href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
 
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js" defer async></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 
     <script src = "/static/expense.js" defer async></script>
 </head>
@@ -36,9 +38,9 @@
                 <label for="category">Category:</label>
                 <select id="category" name="category" required>
                     <option value="">Select a category</option>
-                    <option value="food">Needs</option>
-                    <option value="transportation">Wants</option>
-                    <option value="entertainment">Savings</option>
+                    <option value="Needs">Needs</option>
+                    <option value="Wants">Wants</option>
+                    <option value="Savings">Savings</option>
                 </select><br><br>
                 <label for="amount">Amount:</label>
                 <span>$</span>
@@ -50,7 +52,8 @@
         
 
         <div id = "tab-3"> 
-            <p>This Works</p>
+            <h3>Expense Breakdown</h3>
+            <canvas id="expenseChart" width="600" height="600"></canvas>
         </div>
     </div> 
 </body>

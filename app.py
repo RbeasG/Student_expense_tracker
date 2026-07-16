@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
     return render_template("expense.html")
 
+#This pushes the inomce to the json file 
 @app.route("/addIncome", methods=["POST"])
 def addIncome():
     income = request.json
@@ -24,7 +25,7 @@ def addIncome():
 
     return jsonify({"message": "Income added"})
 
-
+#This pushes the items to the json file
 @app.route("/addExpense", methods=["POST"])
 def addExpense():
     expense = request.json
@@ -39,7 +40,7 @@ def addExpense():
 
     return jsonify({"message": "Expense added"})
 
-
+#This gives the remaining balance by subtracting the items from the income
 @app.route("/balance")
 def balance():
     with open("items.json", "r") as file:
@@ -59,7 +60,28 @@ def balance():
     })
 
 
+@app.route("/chartData")
+def chartData():
+    with open("items.json", "r") as file:
+        data = json.load(file)
+
+    totals = {
+        "Needs": 0,
+        "Wants": 0,
+        "Savings": 0
+    }
+
+    for expense in data["expenses"]:
+        category = expense["category"]
+        totals[category] += expense["amount"]
+
+    return jsonify(totals)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+
+
+

@@ -1,17 +1,13 @@
 {
-    "income": 400,
+    "income": 7000,
     "expenses": [
         {
-            "category": "transportation",
-            "amount": 34
+            "category": "Needs",
+            "amount": 300
         },
         {
-            "category": "food",
-            "amount": 400
-        },
-        {
-            "category": "food",
-            "amount": 30
+            "category": "Wants",
+            "amount": 700
         }
     ]
 }

@@ -1,33 +1,46 @@
 $(function () {
     $("#tabs").tabs();
 
-    // Add Expense
-    $("#expenseForm").submit(function (event) {
-        event.preventDefault();
+    let chart;
 
-        let expense = {
-            category: $("#category").val(),
-            amount: Number($("#amount").val())
-        };
+    // Function to load/update the pie chart
+    function loadChart() {
+        fetch("/chartData")
+            .then(response => response.json())
+            .then(data => {
 
-        fetch("/addExpense", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(expense)
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            alert(data.message);
-            $("#expenseForm")[0].reset();
-        })
-        .catch(error => {
-            console.error("Error:", error);
-        });
-    });
+                const labels = Object.keys(data);
+                const values = Object.values(data);
 
+                if (chart) {
+                    chart.destroy();
+                }
+
+                const ctx = document.getElementById("expenseChart").getContext("2d");
+
+                chart = new Chart(ctx, {
+                    type: "pie",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            data: values
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: "bottom"
+                            }
+                        }
+                    }
+                });
+            })
+            .catch(error => console.error(error));
+    }
+
+    // Load the chart when the page opens
+    loadChart();
 
     // Add Income
     $("#incomeform").submit(function (event) {
@@ -46,7 +59,6 @@ $(function () {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             alert(data.message);
             $("#incomeForm")[0].reset();
         })
@@ -54,4 +66,34 @@ $(function () {
             console.error("Error:", error);
         });
     });
+
+    // Add Expense
+    $("#expenseForm").submit(function (event) {
+        event.preventDefault();
+
+        let expense = {
+            category: $("#category").val(),
+            amount: Number($("#amount").val())
+        };
+
+        fetch("/addExpense", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(expense)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+            $("#expenseForm")[0].reset();
+
+            // Update chart after adding an expense
+            loadChart();
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+    });
+
 });
