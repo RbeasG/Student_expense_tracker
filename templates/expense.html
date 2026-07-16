@@ -10,7 +10,7 @@
 
     <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
 
-    <script src="{{ url_for('static', filename='expense.js') }}"></script>
+    <script src = "expense.js"></script>
 </head>
 <body>
     <div id = "tabs">
@@ -20,31 +20,28 @@
             <li> <a href = "#tab-3">View info</a></li>
         </ul>
     
-        <div id="tab-1">
-            <form id="incomeForm">
-                <label for="Income">Income:</label>
-                <span>$</span>
-                <input type="number" id="Income" name="Income" min="0" required>
-                <button type="submit">Add Income</button>
-            </form>
-            <p id="incomeMessage"></p>
+        <div id = "tab-1"> 
+            <label for="amount">Income:</label>
+            <span>$</span>
+            <input type="number" id="Income" name="Income"  min="0" required>
         </div>
+
          
         <div id="tab-2">
             <form id="expenseForm">
                 <label for="category">Category:</label>
                 <select id="category" name="category" required>
                     <option value="">Select a category</option>
-                    <option value="Needs">Needs</option>
-                    <option value="Wants">Wants</option>
-                    <option value="Savings">Savings</option>
+                    <option value="food">Needs</option>
+                    <option value="transportation">Wants</option>
+                    <option value="entertainment">Savings</option>
                 </select><br><br>
                 <label for="amount">Amount:</label>
                 <span>$</span>
                 <input type="number" id="amount" name="amount"  min="0" required>
                 <button type="submit">Add Expense</button>
             </form>
-            <p id="expensesMessage"></p>
+
         </div>
         
 
