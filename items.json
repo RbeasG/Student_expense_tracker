@@ -4,7 +4,7 @@
         {
             "category": "Needs",
             "description": "Rent",
-            "amount": 400
+            "amount": 1200
         },
         {
             "category": "Needs",
@@ -13,18 +13,18 @@
         },
         {
             "category": "Needs",
-            "description": "rent",
-            "amount": 700
-        },
-        {
-            "category": "Needs",
-            "description": "car payment",
-            "amount": 500
+            "description": "Utilities ",
+            "amount": 350
         },
         {
             "category": "Wants",
-            "description": "concert ticket",
-            "amount": 50
+            "description": "Eating Out",
+            "amount": 200
+        },
+        {
+            "category": "Wants",
+            "description": "Nice Skin Care",
+            "amount": 200
         }
     ]
 }
